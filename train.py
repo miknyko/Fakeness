@@ -12,8 +12,8 @@ height = 32
 width = 32
 depth = 3
 
-trainset = r'C:\Users\Thinkpad\Desktop\fanpai\dataset\train'
-valset = r'C:\Users\Thinkpad\Desktop\fanpai\dataset\test'
+trainset = r'D:\images\fakenessDataset\train'
+valset = r'D:\images\fakenessDataset\test'
 ckp_path = r'models\ckp.h5'
 
 def train():
@@ -25,11 +25,13 @@ def train():
 
     traindataloader = generator.flow_from_directory(
         trainset,
+        batch_size=32,
         target_size=(height,width)
     )
 
     valdataloader = generator.flow_from_directory(
         valset,
+        batch_size=32,
         target_size=(height,width)
     )
 
@@ -39,7 +41,7 @@ def train():
     print('=' * 40 + '开始训练' + '=' * 40)
     model.fit_generator(
         traindataloader,
-        epochs=20,
+        epochs=40,
         verbose=1,
         callbacks=[train_ckp],
         validation_data=valdataloader,
