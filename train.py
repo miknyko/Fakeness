@@ -12,8 +12,8 @@ height = 32
 width = 32
 depth = 3
 
-trainset = r'D:\images\fakenessDataset\train'
-valset = r'D:\images\fakenessDataset\test'
+trainset = r'D:\images\MoireSyncDataset\train_0323'
+valset = r'D:\images\MoireSyncDataset\test_0323'
 ckp_path = r'models\ckp.h5'
 
 def train():
@@ -41,14 +41,14 @@ def train():
     print('=' * 40 + '开始训练' + '=' * 40)
     model.fit_generator(
         traindataloader,
-        epochs=40,
+        epochs=100,
         verbose=1,
         callbacks=[train_ckp],
         validation_data=valdataloader,
         workers=2
 
     )
-    model.save_weights(r'models\livenessv1.0.h5')
+    model.save_weights(r'models\livenessv2.0.h5')
 
 
 
