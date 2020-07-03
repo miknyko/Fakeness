@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-
+#Author: Rockstar He
+#Date: 2020-07-03
+#Description:
+import tensorflow as tf
+keras = tf.keras
 import os
 import keras
 from keras.preprocessing.image import ImageDataGenerator
@@ -12,8 +16,8 @@ height = 32
 width = 32
 depth = 3
 
-trainset = r'D:\images\MoireSyncDataset\train_0323'
-valset = r'D:\images\MoireSyncDataset\test_0323'
+trainset = r'D:\images\fakenessDataset\train'
+valset = r'D:\images\fakenessDataset\test'
 ckp_path = r'models\ckp.h5'
 
 def train():
@@ -48,7 +52,7 @@ def train():
         workers=2
 
     )
-    model.save_weights(r'models\livenessv2.0.h5')
+    model.save_weights(r'models\liveness3.0.h5')
 
 
 

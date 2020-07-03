@@ -1,3 +1,10 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+#Author: Rockstar He
+#Date: 2020-07-03
+#Description:
+import tensorflow as tf
+keras = tf.keras
 import keras
 import json
 import numpy as np
@@ -7,8 +14,9 @@ from keras.preprocessing.image import ImageDataGenerator
 
 from liveness import create_model
 
-model_pth = 'models/livenessv1.0.h5'
-dataset_pth = r'D:\images\fakenessDataset\test'
+model_pth = 'models/liveness3.0.h5'
+# dataset_pth = r'D:\images\fakenessDataset\test'
+dataset_pth = r'D:\images\fakenessTestset2\2020-04-22'
 
 height = 32
 width = 32
@@ -37,12 +45,12 @@ def main():
     
     print(result)
 
-    with open('result/res2.json','w') as f:
+    with open('result/res5.json','w') as f:
         json.dump(result,f)
 
 def display():
 
-    with open('result/res2.json','r') as f:
+    with open('result/res5.json','r') as f:
         result = json.load(f)
     
     positives = []
@@ -50,7 +58,8 @@ def display():
         if v == 0:
             positives.append(k)
 
-    print(positives)
+    print(len(result.keys()))
+    print(len(positives))
 
     for img in positives:
         pth = os.path.join(dataset_pth,img)

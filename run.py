@@ -1,3 +1,10 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+#Author: Rockstar He
+#Date: 2020-07-03
+#Description:
+import tensorflow as tf
+keras = tf.keras
 import keras
 import json
 import numpy as np
